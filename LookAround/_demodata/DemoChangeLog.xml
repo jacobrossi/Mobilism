@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<demochangelog>
+  <change>
+    <user>System</user>
+    <timestamp>6/7/2013 1:51:39 PM</timestamp>
+    <comments>Created by system.</comments>
+  </change>
+  <change>
+    <user>franko</user>
+    <timestamp>6/7/2013 3:49:57 PM</timestamp>
+    <comments>Initial checkin</comments>
+  </change>
+  <change>
+    <user>franko</user>
+    <timestamp>6/21/2013 12:49:25 PM</timestamp>
+    <comments>Candidate for //Build</comments>
+  </change>
+  <change>
+    <user>franko</user>
+    <timestamp>6/24/2013 11:14:56 PM</timestamp>
+    <comments>Bugfixes (renders on load now)</comments>
+  </change>
+  <change>
+    <user>franko</user>
+    <timestamp>6/28/2013 9:04:36 AM</timestamp>
+    <comments>Updates to Union Square pictures (new bilboards) loaded by default2.html</comments>
+  </change>
+  <change>
+    <user>franko</user>
+    <timestamp>7/2/2013 4:05:05 PM</timestamp>
+    <comments>Fixed bugs</comments>
+  </change>
+  <change>
+    <user>franko</user>
+    <timestamp>7/3/2013 2:04:34 PM</timestamp>
+    <comments>Fixed 367211</comments>
+  </change>
+  <change>
+    <user>franko</user>
+    <timestamp>7/9/2013 6:14:23 PM</timestamp>
+    <comments>Fixed 363120</comments>
+  </change>
+  <change>
+    <user>franko</user>
+    <timestamp>8/3/2013 11:34:46 AM</timestamp>
+    <comments>Fix for 363058</comments>
+  </change>
+</demochangelog>

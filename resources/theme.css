@@ -1,0 +1,159 @@
+/* THEME
+	Grey Background: rgb(69,69,69);
+    Dark Gray Background: rgb(40,40,40);
+	Black Border: black;
+	Blue Text: rgb(51,198,244);
+	Light Grey Text: rgb(207,207,207);
+/*
+
+/* Slide Theme */
+body {
+	font-family: segoe ui;
+	background-color: rgb(69,69,69);
+	color: white;
+	font-size: 16pt;
+}
+
+header {
+    background-color: rgb(40,40,40);
+    color: rgb(51,198,244);
+    margin: 0px 0px 0px -20px;
+    padding: 10px;
+    width: calc(100% + 20px);
+}
+
+a:visited {
+    color: rgb(51,198,244);
+}
+
+a {
+	color: rgb(51,198,244);
+}
+
+.slide {
+	border-top: 10px solid black;
+}
+
+.slide h1 {
+	font-size: 26pt;
+}
+
+.slide h2 {
+	color: rgb(207,207,207);
+}
+
+.slide ul {
+	list-style: none;
+	font-size: 22pt;
+	color: rgb(207,207,207);
+}
+
+.slide ul li {
+	text-indent: -25px;
+}
+
+.slide ul.no-hanging-indent li  {
+	text-indent: 0px;
+}
+
+.slide ul li:before {
+	/*content: "* ";*/
+}
+
+.slide figure.codebox {
+	font-size: 14pt;
+}
+.slide figure.codebox  .line{
+	height: 30px !important;
+}
+
+.slide code {
+	color: rgb(51,198,244);
+}
+
+.transport button {
+	border: none;
+	color: rgb(207,207,207);
+	font-size: 14pt;
+	font-family: segoe ui symbol;
+	background-color: transparent;
+}
+.transport button:hover {
+	color: white;
+	cursor: pointer;
+}
+
+/* Title Slide */
+.title.slide  h1{
+	font-size: 26pt;
+	margin-top: 20%;
+	margin-left: auto;
+	margin-right:auto;
+	text-align: center;
+	color: rgb(207,207,207);
+}
+
+.title.slide h2 {
+	font-size: 22pt;
+	margin-left: auto;
+	margin-right:auto;
+	text-align: center;
+	color: rgb(51,198,244);
+}
+
+.blue.title.slide h1{
+	color: rgb(51,198,244);
+}
+
+.blue.title.slide h2 {
+	color: rgb(207,207,207);
+}
+
+.title .twitter {
+	margin-top: 20px;
+    margin-left: -30px;
+}
+
+.title .twitter  span{
+	vertical-align: 8px;
+	color: white;
+	font-size: 14pt;
+}
+
+.title .twitter img{
+	width: 30px;
+}
+
+.title .ie {
+    margin-left: -30px;
+}
+
+.title .ie img {
+    width: 30px;
+ }
+
+.title .ie  span{
+	vertical-align: 8px;
+	font-size: 16pt;
+}
+
+.float-right {
+	margin-right: 10%;
+	float: right;
+	width: 40%;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.autofit {
+	width: 50%;
+    height: 80%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+

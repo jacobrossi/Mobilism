@@ -1,0 +1,47 @@
+﻿body {
+    -ms-touch-action: none;
+    font-family: Candara, sans-serif;
+    font-size:180%;
+    padding:0;
+    margin:0;
+    max-width:100%;
+    overflow:hidden;
+    background-color:lightblue;
+}
+
+#DemoTitle {
+    position:absolute;
+    top:5px;
+    left:10px;
+    padding:0;
+    font-size:140%;
+}
+
+#DemoScreenReaderText {
+    position:absolute;
+    top:100px;
+    left:100px;
+}
+
+#DemoIntroduction {
+    position:absolute;
+    width:600px;
+    top:50%;
+    left:50%;
+    margin-left:-300px;
+    margin-top:-300px;
+    background-color:white;
+    padding:20px;
+    padding-top:8px;
+    padding-bottom:16px;
+    border-radius:4px;
+    opacity:0.9;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#DemoContent {
+    position:absolute;
+    margin:0;
+    top:0px;
+    left:0px;
+}

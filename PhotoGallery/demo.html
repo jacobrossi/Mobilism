@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+	<title>Photos</title>
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<style>
+	html { font-family: Segoe UI; background-color:transparent; color: white;}
+	body { width: 500px; margin-left: auto; margin-right: auto; text-align: center;}
+	img {
+		width:500px;
+		vertical-align: top;
+	}
+
+	.photoGallery {
+		width: 500px;
+		height: 340px;
+		overflow-x: auto;
+		overflow-y: hidden;
+		white-space: nowrap;
+		-ms-scroll-snap-points-x: snapInterval(0px,500px);
+		-ms-scroll-snap-type: mandatory;
+		-ms-overflow-style: none;
+		-ms-scroll-chaining:none;
+		-ms-scroll-translation: vertical-to-horizontal;
+	}
+	</style>
+</head>
+<body>
+	<h1>Photos</h1>
+	<div class="photoGallery">
+		<img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+	</div>
+</body>
+</html>

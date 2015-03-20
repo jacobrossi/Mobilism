@@ -1,0 +1,433 @@
+<!doctype html>
+<html>
+<head>
+	<title>HTML5DevConf - Rich Interaction with Pointer Events, Panning &amp; Zooming, and Gestures- Jacob Rossi, Microsoft</title>
+	<meta http-equiv="x-ua-compatible" content="IE=Edge">
+	<link rel="stylesheet" type="text/css" href="resources/slides.css">
+	<link rel="stylesheet" type="text/css" href="resources/theme.css">
+	
+	<script type="text/javascript" src="syntaxhighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushXML.js"></script>
+	<link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shCoreDefault.css"/>
+	<link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shThemeEmacs.css"/>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+</head>
+<body>
+<article id="presentation" tabIndex="1">
+<section class="title slide">
+    <header  class="dark-grey-background">
+        <h1>Immersive Interaction Experiences</h1>
+        <h2>Pointer Events, Panning &amp; Zooming, and Gestures</h2>
+    </header>
+	<ul style="text-align: center; margin-top: 100px">
+		<li>Jacob Rossi</li>
+		<li class="ie"><img src="resources/IE_logo.png"> <span>Internet Explorer</span></li>
+		<li class="twitter"><img src="resources/twitter.png"> <span>@jacobrossi</span></li>
+	</ul>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<img src="resources/chromebook.png" style="position: absolute; left: 10%; margin-top: 10%; transform: rotate(-10deg); width:25%;">
+	<img src="resources/lumia.png" style="position: absolute; margin-top: 5%; right: 20%; transform: rotate(-15deg); width:7%;">
+	<img src="resources/surface.png" style="position: absolute; left: 40%; margin-top: 10%; transform: rotate(0deg); width:25%;">
+	<img src="resources/xbox.png" style="position: absolute; left: 35%; margin-top: 30%; transform: rotate(0deg); width:35%;">
+	<img src="resources/surfacepro.png" style="position: absolute; left: 10%; margin-top:35%; transform: rotate(10deg); width:25%;">
+	<img src="resources/ipad.png" style="position: absolute; right: 10%; margin-top:35%; transform: rotate(10deg); width:20%;">
+	<img src="resources/galaxynote.png" style="position: absolute; right: 5%; margin-top:10%; transform: rotate(10deg); width:15%;">
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide" >
+	<h1>&quot;Point and Click&quot; is so old fashioned</h1>
+	<div class="center autofit" style="background-image: url(resources/usingamouse.jpg)">
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="blue title slide">
+	<h1>Direct Manipulation (<i>d&#601;-'rekt m&#601;-ni-py&#601;-l&#257;-sh&#601;n</i>)</h1>
+	<h2>Make the user forget they're touching glass</h2>
+	<img src="resources/wheel.jpg" class="center" style="margin-top: 70px;">
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+<h1>How (not) to handle a gesture</h1>
+	<figure style="margin-left: auto; margin-right: auto; margin-top:5%; width: 100%;" class="codebox">
+<script type="syntaxhighlighter" class="brush: js;"><![CDATA[
+function onSwipe(element) {
+    element.classList.add("slide-in-animation"); //Play animation when we've detected a swipe
+}
+]]></script></figure>
+<h2 style="text-align: center; color: rgb(51,198,244);">If your gesture handling isn't ongoing, then it isn't direct manipulation</h2>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+<h1>The importance of being natural</h1>
+<div class="center autofit" style="background-image: url(resources/handshake.jpg)">
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="blue title slide">
+	<h1>Panning & Zooming</h1>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+    <h1>Native panning and zooming is fast</h1>
+    <h2>Think about how you can leverage that creatively</h2>
+    <div class="center" style="width: 500px; text-align: center;">
+        <h3>Color Picker</h3>
+        <iframe src="colorpicker.html" style="width: 400px; height: 100px; border: 2px solid white;"></iframe>
+	</div>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+    <h1>Introducing the CSS Scrolling Snap Points Spec Proposal</h1>
+  <figure style="margin-left: auto; margin-right: auto;" class="codebox">
+<script type="syntaxhighlighter" class="brush: html; highlight: [3,4]"><![CDATA[
+.snap {
+    overflow-x: scroll;
+    -ms-scroll-snap-points-x: snapInterval(0px, 100%);
+    -ms-scroll-snap-type: mandatory;
+}
+]]></script></figure>  
+<img src="resources/snapPoints.png" class="center">
+<h2 style="margin-left:auto; margin-right:auto; width: 75%;text-align:center;color: rgb(51, 198, 244);">http://www.w3.org/css/css-snappoints/</h2>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+    <iframe src="PhotoGallery/demo.html" style="width: 95%; height: 95%; margin: auto; border: none;"></iframe>    
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+    <h1>Other example uses:</h1>  
+        <h3>Pull-Down Menu</h3>
+        <iframe src="pulldown.html" style="width: 400px; height: 300px; border: 2px solid white;"></iframe>
+		<img style="float: left; margin-left: 50px; width: 500px">
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="blue title slide">
+	<h1>Pointer Events</h1>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide" >
+	<h1>Pointer Events: beyond the click event, across devices</h1>
+	<img src="resources/pointer.png" style="position: absolute; left: 5%; margin-top: 5%; width: 30%;">
+	<ul style="position:absolute; margin-top:15%; right:10%; width:55%;">
+		<li>Simplicity of mouse events</li>
+		<li>With support for multiple device types</li>
+		<li>Including multi-touch (even multi-user)</li>
+		<li>And, device-specific properties like pressure or touch contact size</li>
+	</ul>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide" >
+	<h1>You already know the basics</h1>
+	<ul style="margin-left: auto; margin-right: auto;margin-top: 50px; width: 200px;" class="no-hanging-indent">
+		<li>pointer<span style="font-weight: bold">down</span></li>
+		<li>pointer<span style="font-weight: bold">up</span></li>
+		<li style="background-color: rgb(51,198,244);">pointer<span style="font-weight: bold">cancel</span></li>
+		<li>pointer<span style="font-weight: bold">move</span></li>
+		<li>pointer<span style="font-weight: bold">over</span></li>
+		<li>pointer<span style="font-weight: bold">out</span></li>
+		<li>pointer<span style="font-weight: bold">enter</span></li>
+		<li>pointer<span style="font-weight: bold">leave</span></li>
+	</ul>
+	<figure style="margin-left: auto; margin-right: auto; margin-top:5%; width: 650px" class="codebox">
+<script type="syntaxhighlighter" class="brush: js;"><![CDATA[
+//element.addEventListener("mousedown", processDown);
+element.addEventListener("pointerdown", processDown);
+//element.addEventListener("mouseup", processDown);
+element.addEventListener("pointerup", processUp);
+element.addEventListener("pointercancel", processCancel);
+]]></script></figure>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide" >
+	<h1>Device-independent when you want it</h1>
+		<h2>Device-specific when you need it</h2>
+<figure style="margin-top:0px; margin-left: auto; margin-right: auto;" class="codebox">
+<script type="syntaxhighlighter" class="brush: js;"><![CDATA[
+function handlePointerEvent(event) {
+	switch (event.pointerType) {
+		case "touch":
+			//Do some touch specific stuff
+			break;
+		case "pen":
+			//Do some pen specific stuff
+			break;
+		case "mouse":
+			//Do some mouse specific stuff
+			break;
+		default:
+			//Do generic logic for other types
+	}
+}
+]]></script></figure>
+		<aside style="margin-left: auto; margin-right: auto; width: 80%;text-align: center; color: rgb(51,198,244);">
+			<h3>Pointer events enable you to share code between devices.<br>
+			But you can differentiate by device when needed.</h3>
+		</aside>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide" >
+		<h1>Migrating from Mouse Events</h1>
+<style>
+.codebox2 {
+	font-size: 16pt !important;
+}
+</style>
+<figure style="margin-top:0px; margin-left: auto; margin-right: auto;" class="codebox2">
+<script type="syntaxhighlighter" class="brush: js; highlight: [1, 2, 4, 9]"><![CDATA[
+	canvas.addEventListener("mousedown", startPaint);
+	canvas.addEventListener("mousemove", paint);
+
+	function startPaint(event) {
+		//Set up a running list of points
+		points = [{x: event.offsetX, y: event.offsetY}];
+	}
+
+	function paint( event ) {
+		if(event.buttons>0) {
+			//Add newest point
+			points.push({x: event.offsetX, y: event.offsetY});
+			
+			//Create path
+			context.beginPath();
+			context.moveTo(points[0].x, points[0].y);
+			context.lineTo(points[1].x, points[1].y);
+			
+			//Stroke path
+			context.lineWidth = 4;
+			context.strokeStyle = 'black';
+			context.stroke();
+			context.closePath();
+			
+			//Shift out oldest point
+			points.shift();
+		}
+	}
+]]></script></figure>			
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide" >
+	<iframe style="width: 95%; height: 95%; margin: auto; border: none;" src="paint.html"></iframe>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide" >
+		<h1>Step 1</h1>
+		<h2><code>eventType.replace("mouse","pointer");</code></h2>
+		<figure style="margin-top:100px; margin-left: auto; margin-right: auto;" class="codebox">
+<script type="syntaxhighlighter" class="brush: js; highlight: [2, 4]"><![CDATA[
+	//canvas.addEventListener("mousedown", startPaint);
+	canvas.addEventListener("pointerdown", startPaint);
+	//canvas.addEventListener("mousemove", paint);
+	canvas.addEventListener("pointermove", startPaint);
+
+	function startPaint(event) {
+		...
+	}
+
+	function paint( event ) {
+		...
+	}
+]]></script></figure>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide" >
+	<iframe style="width: 95%; height: 95%; margin: auto; border: none;" src="paint.html"></iframe>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide" >
+		<h1>$#@%! Why doesn't it work with touch?</h1>
+		<h2>You need to turn off panning/zooming</h2>
+		<ul>
+			<li><code>touch-action</code> - CSS property that specifies which touch actions, like pan or zoom, are possible.
+			<li style="margin-top: 40px">Default Value: <code>auto</code></li>
+			<li>Common Value: <code>none</code></li>
+			<li>Other Values: <br><code>pan-x</code> || <code>pan-y</code> || <code>pinch-zoom</code>* || <code>double-tap-zoom</code>*</code>
+			</li>
+			<li style="margin-top: 40px">If a touch action kicks in, then <code>pointercancel</code> fires</li>
+		</ul>
+<figure style="margin-top:20px; margin-left: auto; margin-right: auto;" class="codebox">
+<script type="syntaxhighlighter" class="brush: html; highlight: [3]"><![CDATA[
+<style>
+	canvas {
+		touch-action: none; /* Disable panning and zooming */
+	}
+</style>
+]]></script></figure>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide" >
+	<iframe style="width: 95%; height: 95%; margin: auto; border: none;" src="paint2.html"></iframe>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide" >
+		<h1>Handling Multi-Touch</h1>
+<ul>
+	<li>The <code>pointerId</code> property gives a valid identifier for each pointer</li>
+</ul>
+<figure style="margin-left: auto; margin-right: auto;" class="codebox2">
+<script type="syntaxhighlighter" class="brush: js; highlight: [3,9,13,14,19,22,23,26]"><![CDATA[
+	function startPaint(event) {
+		//Set up a running list of points
+		pointers[event.pointerId] = [{x: event.offsetX, y: event.offsetY}];
+	}
+	function paint(event) {
+		if(event.buttons>0) {
+			event.preventDefault();
+			//Add newest point
+			pointers[event.pointerId].push({x: event.offsetX, y: event.offsetY});
+			
+			//Create path
+			context.beginPath();
+			context.moveTo(pointers[event.pointerId][0].x, pointers[event.pointerId][0].y);
+			context.lineTo(pointers[event.pointerId][1].x, pointers[event.pointerId][1].y);
+			
+			...
+			
+			//Shift out oldest point
+			pointers[event.pointerId].shift();
+	}
+	
+	canvas.addEventListener("pointerup", endPaint);
+	canvas.addEventListener("pointercancel", endPaint);
+	
+	function endPaint(event) {
+		delete pointers[event.pointerId];
+	}
+]]></script></figure>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide" >
+	<iframe style="width: 95%; height: 95%; margin: auto; border: none;" src="paint3.html"></iframe>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>Additional device properties</h1>
+	<table cellSpacing="0" style="width: 75%; margin-left: auto; margin-right: auto;font-size: 18pt">
+		<thead>
+			<tr><td>Property</td><td>Description</td></tr>
+		</thead>
+		<tbody>
+			<tr><td><code>width</code><br><code>height</code></td><td>The size of the pointer on the screen. For example, your finger width/height.</td></tr>
+			<tr><td><code>pressure</code></td><td>The amount of pressure applied. Varies from 0 to 1.</td></tr>
+			<tr><td><code>tiltX</code><br><code>tiltY</code></td><td>The X/Y offset angles of a stylus from the orthogonal position.</td></tr>
+		</tbody>
+	</table>
+<figure style="margin-left: auto; margin-right: auto;" class="codebox">
+<script type="syntaxhighlighter" class="brush: js; highlight: [4]"><![CDATA[
+	function paint(event) {
+		...
+		//Paint path
+		context.lineWidth = event.pressure* 10; //Use width
+		context.strokeStyle = colors[event.pointerId % colors.length];
+		context.stroke();
+		context.closePath();
+	}
+]]></script></figure>				
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide" >
+	<iframe style="width: 95%; height: 95%; margin: auto; border: none;" src="paint5.html"></iframe>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+<h1>More device properties</h1>
+<iframe style="width: 100%; height: 75%; border: none; margin-left: auto; margin-right: auto" src="tilt/tilt.html"></iframe>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>Using Pointer Events Today</h1>
+	<ul>
+		<li><img src="resources/ie_logo.png" style="width:30px"> 10 (prefixed)</li>
+		<li><img src="resources/ie_logo.png" style="width:30px"> 11</li>
+		<li><img src="ff.png" style="width:40px"> Work in progress</li>
+		<li><img src="chrome.png" style="width:40px"> Work in progress</li>
+		<li>jQuery (work in progress)</li>
+		<li>Hand.js - <a href="http://aka.ms/handjs">http://aka.ms/handjs</a></li>
+		<li>Polymer Polyfill - <a href="http://www.polymer-project.org/platform/pointer-events.html">polymer-project.org/platform/pointer-events.html</a></li>
+		<li>Cordova/PhoneGap plugin</li>
+	</ul>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="blue title slide" id="gestureEventsSlide">
+    <h1>Gesture Events</h1>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+    <h1>MSGesture - direct manipulation through script</h1>
+    <ol>
+        <li>Instantiate a gesture recognizer:<br>
+            <code>var g = new MSGesture();</code>
+        </li>
+        <li>Assign a target element:<br>
+            <code>var elem = document.getElementById(&quot;some-elm&quot;);<br>g.target = elem;</code>
+        </li>
+        <li>Assign pointers to be tracked:<br>
+            <pre><code>function onPointerDown(event) {<br>
+    g.addPointer(event.pointerId);
+}</code></pre>
+        </li>
+        <li>Listen for gesture events on the target:<br>
+            <code>elem.addEventListener("MSGestureChange", handleGesture);</code>
+        </li>
+    </ol>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>Gesture event properties</h1>
+	<ul>
+		<li><code>rotation</code> - number of radians rotated about the centroid of the gesture</li>
+		<li><code>scale</code> - scale factor (multiplier) by expansion of fingers (pinch)</li>
+		<li><code>translationX</code>, <code>translationY</code> - linear movement of gesture centroid</li>
+		<li><code>velocityX</code>, <code>velocityY</code> - instantaneous linear veolcity</li>
+		<li><code>velocityAngular</code> - rate of change of rotation (rad/s)</li>
+		<li><code>velocityExpansion</code> - rate of change of scale</li>
+	</ul>
+	<h3 class="center">All values are deltas since last gesture event</h3>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+    <h1>Manipulating an Element</h1>
+    <h2>MSGesture + CSS Transforms</h2>
+    <figure style="margin-left: auto; margin-right: auto;" class="codebox">
+<script type="syntaxhighlighter" class="brush: js; highlight: [1,4,5,6,7,8,9,10]"><![CDATA[
+window.addEventListener("MSGestureChange",manipulateElement,false);
+
+function manipulateElement(e) {
+	var m = new MSCSSMatrix(e.target.style.transform); //Get the latest transform on the element
+	e.target.style.transform = m.
+		translate(e.offsetX,e.offsetY). //Move the transform origin under the center of the gesture
+			rotate(e.rotation*180/Math.PI). //Apply R
+			scale(e.scale). //Apply S
+			translate(e.translationX,e.translationY). //Apply T
+		translate(-e.offsetX,-e.offsetY);  //Move the transform origin back
+}
+]]></script></figure>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<iframe src="multi_gestures.html" style="border: none; width: 95%; height: 95%; margin: auto;"></iframe>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>A few short touch tips</h1>
+	<ul>
+		<li>Use 40px or larger hit targets</li>
+		<li>Avoid hover menus</li>
+		<li>Touch != No Mouse</li>
+		<li>Touch isn't mobile only</li>
+		<li>Use specific HTML5 Input types</li>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>Thanks, now go touch the web!</h1>
+		<ul>
+			<li>More Resources:
+				<ul>
+					<li><a href="http://www.w3.org/TR/pointerevents/">http://www.w3.org/TR/pointerevents/</a></li>
+                    <li><a href="http://dev.w3.org/css/css-snappoints/">http://dev.w3.org/css/css-snappoints/</a></li>
+					<li><a href="http://bit.ly/win8touchguidance">http://bit.ly/win8touchguidance</a></li>
+					<li><a href="http://docs.webplatform.org/wiki/concepts/PointerEvents">http://docs.webplatform.org/wiki/concepts/PointerEvents</a></li>
+					<li><a href="http://github.com/jacobrossi/PointerPaint/">http://github.com/jacobrossi</a></li>
+				</ul>
+			</li>
+		</ul>
+		<aside style="position:absolute; right: 100px; bottom: 100px;">
+			<h3>Jacob Rossi</h3>
+			<h4>Program Manager</h4>
+			<img src="resources/msft_transparent.png">
+			<h4><a href="">@jacobrossi</a></h4>
+		</aside>
+</section>
+</article>
+<footer class="transport">
+	<button onpointerdown="snapLeft()">&#58020;</button>
+	<button onpointerdown="snapToFavorite()">&#57892;</button>
+	<button onpointerdown="snapRight()">&#58025;</button>
+</footer>
+<script>
+var presentation = document.getElementById("presentation");
+window.addEventListener("load", function() { presentation.focus();});
+window.addEventListener("focus", function(e) { 
+	if(e.target!==presentation)
+		presentation.focus(); 
+},true);
+
+function snapLeft() {
+	presentation.msZoomTo({ contentX: (presentation.scrollLeft - presentation.offsetWidth), contentY: 0, viewportX: "left", viewportY: "top"});
+}
+function snapRight() {
+	presentation.msZoomTo({ contentX: (presentation.scrollLeft + presentation.offsetWidth), contentY: 0, viewportX: "left", viewportY: "top"});
+}
+function snapToFavorite() {
+	document.getElementById("gestureEventsSlide").scrollIntoView();
+}
+</script>
+</body>
+</html>

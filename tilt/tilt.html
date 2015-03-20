@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<style>
+body { font-family: segoe ui; overflow: hidden; color: white; font-size: 18pt;}
+
+#pen {
+	width: 25px; position: absolute; top: 50px; left: 50%; transform-origin: bottom; z-index: 2; perspective-origin: bottom;
+}
+
+#tablet {
+	width: 800px; position: absolute; top: 400px; left: calc(50% - 400px); z-index: 1; 
+}
+</style>
+</head>
+<body>
+tiltX: <span id="x"></span><br>
+tiltY: <span id="y"></span>
+
+<img src="pen.png" id="pen"  style="transform: perspective(5000px)">
+<img src="tablet.png" id="tablet">
+
+<script>
+if(navigator.pointerEnabled) {
+	window.addEventListener("pointermove", updatePen);
+}else if(navigator.msPointerEnabled) {
+	window.addEventListener("MSPointerMove", updatePen);
+}
+var x = document.getElementById("x");
+var y = document.getElementById("y");
+var pen = document.getElementById("pen");
+var tiltX, tiltY;
+
+function updatePen(e) {
+	if(e.pointerType==="pen" || e.pointerType === 3) {
+		if(e.tiltX < 90)
+			tiltX = (e.tiltX*2 - 45)*2;
+		if(e.tiltY < 90)
+			tiltY = (e.tiltY*2 - 45)*2;
+		x.innerHTML = tiltX + "&deg;";
+		y.innerHTML = tiltY + "&deg;";
+		
+		pen.style.transform = "perspective(5000px) rotateZ(" + tiltX + "deg) rotateX(" + tiltY + "deg)";
+	}
+}
+
+window.addEventListener("contextmenu", function(e) { e.preventDefault(); },true);
+window.addEventListener("MSHoldVisual", function(e) { e.preventDefault(); },true);
+window.addEventListener("dragstart", function(e) { e.preventDefault(); },true);
+</script>
+</body>
+</html>

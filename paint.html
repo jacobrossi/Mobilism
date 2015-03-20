@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<title>Paint!</title>
+</head>
+<body>
+	<canvas id=canvas width=800 height=600 style="border: 2px solid #333; touch-action: auto"></canvas>
+	<script type='text/javascript'>
+	var canvas = document.getElementById("canvas");
+	var	context = canvas.getContext("2d");
+	var points;
+	context.lineJoin = "round";
+	context.lineCap = "round";
+
+	canvas.addEventListener("mousedown", startPaint);
+	canvas.addEventListener("mousemove", paint);
+
+	function startPaint(event) {
+		//Set up a running list of points
+		points = [{x: event.offsetX, y: event.offsetY}];
+	}
+
+	function paint( event ) {
+		if(event.buttons>0) {
+			event.preventDefault();
+			//Add newest point
+			points.push({x: event.offsetX, y: event.offsetY});
+			
+			//Create path
+			context.beginPath();
+			context.moveTo(points[0].x, points[0].y);
+			context.lineTo(points[1].x, points[1].y);
+			
+			//Stroke path
+			context.lineWidth = 4;
+			context.strokeStyle = 'black';
+			context.stroke();
+			context.closePath();
+			
+			//Shift out oldest point
+			points.shift();
+		}
+	}
+	</script>
+</body>
+</html>

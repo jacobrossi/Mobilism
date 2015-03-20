@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<title>MSGesture</title>
+	<style>
+	body { touch-action: none; }
+	#box1 {
+		transform-origin: 0px 0px;
+		border: 5px solid green;
+		width: 100px;
+		height: 100px;
+	}
+	
+	#box2 {
+	transform-origin: 0px 0px;
+		border: 5px solid red;
+		width: 100px;
+		height: 100px;
+	}
+	</style>
+</head>
+<body>
+<div id="box1"></div>
+<div id="box2"></div>
+
+<script>
+var gesture1 = new MSGesture();
+gesture1.target = document.getElementById("box1");
+gesture1.target.addEventListener("pointerdown", function(event) { gesture1.addPointer(event.pointerId) });
+
+var gesture2 = new MSGesture();
+gesture2.target = document.getElementById("box2");
+gesture2.target.addEventListener("pointerdown", function(event) { gesture1.addPointer(event.pointerId) });
+
+
+window.addEventListener("MSGestureChange",manipulateElement,false);
+
+function manipulateElement(e) {
+	var m = new MSCSSMatrix(e.target.style.transform); //Get the latest transform on the element
+	e.target.style.transform = m.
+		translate(e.offsetX,e.offsetY). //Move the transform origin under the center of the gesture
+			rotate(e.rotation*180/Math.PI). //Apply R
+			scale(e.scale). //Apply S
+			translate(e.translationX,e.translationY). //Apply T
+		translate(-e.offsetX,-e.offsetY);  //Move the transform origin back
+}
+</script>
+</body>
+</html>

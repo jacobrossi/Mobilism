@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+
+  <Identity
+    Name="Levitation"
+    Version="1.0.0.0"
+    Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+
+  <Properties>
+    <DisplayName>Levitation</DisplayName>
+    <Description>http://ie.microsoft.com/testdrive/Performance/Levitation</Description>
+    <PublisherDisplayName>Microsoft</PublisherDisplayName>
+    <Logo>images\storelogo.png</Logo>
+  </Properties>
+
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+
+  <Applications>
+    <Application  
+      Id="TDWWA.Levitation"
+      StartPage="source\Category\DemoFolder\Default.html">
+
+      <m2:VisualElements
+        DisplayName="Levitation"
+        Description="Levitation"
+        ForegroundText="light"
+        BackgroundColor="#464646"
+        Square150x150Logo="images\Logo.png"
+        Square30x30Logo="images\SmallLogo.png"
+        >
+
+        <m2:SplashScreen Image="package\splashscreen.png" />
+
+      </m2:VisualElements>
+      <Extensions>
+          <Extension Category="windows.search" StartPage="searchResults.html" />
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

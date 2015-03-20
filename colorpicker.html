@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <title>Color Picker</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <style>
+    html, body { width: 100%; height: 100%; margin: 0px; height: 0px; }
+    
+    #color-picker {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        touch-action: pan-x;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -ms-overflow-style: none;
+        -ms-scroll-translation: vertical-to-horizontal;
+        -ms-scroll-chaining: none;
+    }
+    #color-picker img {
+        height: 100%;
+        display: inline;
+    }
+    
+    .greyout {
+        position: absolute;
+        top: 0px;
+        background-color: black;
+        opacity: 0.7;
+        width: calc(50% - 10px);
+        height: 100%;
+        z-index: 2;
+        outline: 2px solid white;
+        pointer-events: none;
+    }
+    .greyout.left {
+        left: 0px;
+    }
+    .greyout.right {
+        right: 0px;
+
+    }
+    </style>
+</head>
+<body>
+    <div id="color-picker">
+        <img src="resources/colors.png"><img src="resources/colors.png"><img src="resources/colors.png">   
+    </div>
+    <div class="greyout left"></div>
+    <div class="greyout right"></div>
+    <script>
+        document.getElementById("color-picker").scrollLeft = 200;
+    </script>
+</body>
+</html>

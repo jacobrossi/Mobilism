@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<demochangelog>
+  <change>
+    <user>jweber</user>
+    <timestamp>6/10/2013 10:01:58 AM</timestamp>
+    <comments>Create Demo</comments>
+  </change>
+  <change>
+    <user>jweber</user>
+    <timestamp>6/23/2013 2:31:59 PM</timestamp>
+    <comments>Version Ready</comments>
+  </change>
+  <change>
+    <user>jweber</user>
+    <timestamp>6/23/2013 2:33:41 PM</timestamp>
+    <comments>Moving from graphics to performance category.</comments>
+  </change>
+</demochangelog>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+	<title>Paint!</title>
+</head>
+<body>
+	<style>
+		canvas {
+			touch-action: none; /* Disable panning */
+		}
+	</style>
+	<canvas id=canvas width=800 height=600 style="border: 2px solid #333" draggable="false"></canvas><br>
+	<button style="background-color: rgb(221,100,60); width: 40px; height: 40px;" onclick="color=this.style.backgroundColor"></button>
+	<button style="background-color: rgb(63,191,191); width: 40px; height: 40px;" onclick="color=this.style.backgroundColor"></button>
+	<button style="background-color: rgb(106,88,71); width: 40px; height: 40px;" onclick="color=this.style.backgroundColor"></button>
+	<button style="background-color: rgb(179,204,51); width: 40px; height: 40px;" onclick="color=this.style.backgroundColor"></button>
+	<button style="background-color: rgb(0,0,0); width: 40px; height: 40px;" onclick="color=this.style.backgroundColor"></button>
+	<script type='text/javascript'>
+	var canvas = document.getElementById("canvas");
+	var	context = canvas.getContext("2d");
+	var pointers = [];
+	var MAX_WIDTH = 10; //Maximum stroke width
+	context.lineJoin = "round";
+	context.lineCap = "round";
+	
+
+	canvas.addEventListener("pointerdown", startPaint);
+	canvas.addEventListener("pointermove", paint);
+	canvas.addEventListener("pointerup", endPaint);
+	canvas.addEventListener("pointercancel", endPaint);
+
+	function startPaint(event) {
+		//Set up a running list of points
+		pointers[event.pointerId] = [{x: event.offsetX, y: event.offsetY}, {x: event.offsetX, y: event.offsetY}];
+	}
+	
+	function endPaint(event) {
+		delete pointers[event.pointerId];
+	}
+
+	function paint(event) {
+		if(event.buttons > 0) {
+			//Get points for this pointerId
+			var points = pointers[event.pointerId];
+			//Create path
+			context.beginPath();
+			context.moveTo(points[0].x, points[0].y);
+			context.lineTo(points[1].x, points[1].y);
+
+			//Paint path
+			context.lineWidth = event.pressure * MAX_WIDTH; //Use pressure to control width
+			context.strokeStyle = color;
+			context.stroke();
+			context.closePath();
+
+			//Update points
+			pointers[event.pointerId].shift();
+			pointers[event.pointerId].push({x: event.offsetX, y: event.offsetY});
+		}
+	}
+	</script>
+</body>
+</html>

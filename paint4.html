@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<title>Paint!</title>
+</head>
+<body>
+	<style>
+		canvas {
+			touch-action: none; /* Disable panning */
+		}
+	</style>
+	<canvas id=canvas width=800 height=600 style="border: 2px solid #333"></canvas>
+	<script type='text/javascript'>
+	var canvas = document.getElementById("canvas");
+	var	context = canvas.getContext("2d");
+	var pointers = [];
+	var COLORS = ["red", "blue", "green", "yellow", "black", "orange"];
+	
+	context.lineJoin = "round";
+	context.lineCap = "round";
+
+	canvas.addEventListener("pointerdown", startPaint);
+	canvas.addEventListener("pointermove", paint);
+	canvas.addEventListener("pointerup", endPaint);
+	canvas.addEventListener("pointercancel", endPaint);
+
+	function startPaint(event) {
+		//Set up a running list of points
+		pointers[event.pointerId] = [{x: event.offsetX, y: event.offsetY}];
+	}
+	
+	function endPaint(event) {
+		delete pointers[event.pointerId];
+	}
+
+	function paint(event) {
+		if(event.buttons>0) {
+			event.preventDefault();
+			//Add newest point
+			pointers[event.pointerId].push({x: event.offsetX, y: event.offsetY});
+			
+			//Create path
+			context.beginPath();
+			context.moveTo(pointers[event.pointerId][0].x, pointers[event.pointerId][0].y);
+			context.lineTo(pointers[event.pointerId][1].x, pointers[event.pointerId][1].y);
+			
+			//Stroke path
+			context.lineWidth = 4;
+			context.strokeStyle = COLORS[event.pointerId % COLORS.length];
+			context.stroke();
+			context.closePath();
+			
+			//Shift out oldest point
+			pointers[event.pointerId].shift();
+		}
+	}
+	</script>
+</body>
+</html>

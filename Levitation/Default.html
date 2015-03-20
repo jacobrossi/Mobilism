@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+    <head>
+        <!-- Copyright © Microsoft Corporation. All Rights Reserved. -->
+        <!-- Demo Author: Jason Weber, Microsoft Corporation -->
+        <!-- Special thanks to Google Evangalist Paul Lewis for demo inspiration, Mr. Doob for the three.js framework, and Tony Parisi for great reference material. -->
+        <meta http-equiv="X-UA-Compatible" content="IE=11" />
+        <title>Levitation</title>
+        <meta name="description" content="Find your innner fish." />
+        <link rel="shortcut icon" href="../../Includes/Image/FavIcon.ico" />
+        <link rel="stylesheet" type="text/css" href="Levitation.css" />
+        <meta name="t_omni_demopage" content="1" />
+    </head>
+
+	<body>
+        <audio id="backgroundAudio" src="Audio/Theme1.mp3" autoplay preload="auto" lazyload></audio>
+        <div id="container"></div>
+        <div id="controls">
+            <img class="button" src="Images/Mesh.png" onclick="App.toggleMesh();" />
+            <img class="button" src="Images/Light.png" onclick="App.toggleLight();" />
+            <img class="button" src="Images/Color.png" onclick="App.changeLightSource();" />
+            <img class="button" src="Images/Music.png" onclick="App.toggleMusic();" />
+            <img class="button" src="Images/Reset.png" onclick="App.reset();" />
+            <img id="logo" src="Images/WindowsLogo.png" />
+        </div>
+        <div id="information"></div>
+	    <script src="Script/jquery.min.js"></script>
+	    <script src="Script/Three.js"></script>
+	    <script src="Script/Levitation.js"></script>
+	    <script src="Script/Licenses.js"></script>
+        <script type="text/javascript" src="../../includes/script/TestDriveCommon.js"></script>
+	</body>
+
+</html>

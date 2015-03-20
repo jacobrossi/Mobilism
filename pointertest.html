@@ -1,0 +1,11 @@
+<!doctype html>
+<html>
+<head>
+<style>
+html, body { width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+<script>
+window.addEventListener("pointermove", function(e) { document.body.innerHTML += e.pointerId + ":" + e.clientX + "," + e.clientY + "<br>" })
+</script>
