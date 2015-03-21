@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>HTML5DevConf - Rich Interaction with Pointer Events, Panning &amp; Zooming, and Gestures- Jacob Rossi, Microsoft</title>
+	<title>The Input Shouldn't Matter - Building for Adaptive Input Experiences- Jacob Rossi, Microsoft</title>
 	<meta http-equiv="x-ua-compatible" content="IE=Edge">
 	<link rel="stylesheet" type="text/css" href="resources/slides.css">
 	<link rel="stylesheet" type="text/css" href="resources/theme.css">
@@ -17,8 +17,8 @@
 <article id="presentation" tabIndex="1">
 <section class="title slide">
     <header  class="dark-grey-background">
-        <h1>Immersive Interaction Experiences</h1>
-        <h2>Pointer Events, Panning &amp; Zooming, and Gestures</h2>
+        <h1>The Input Shouldn't Matter</h1>
+        <h2>Building Adaptive Input Experiences</h2>
     </header>
 	<ul style="text-align: center; margin-top: 100px">
 		<li>Jacob Rossi</li>
@@ -313,7 +313,32 @@ function handlePointerEvent(event) {
 <iframe style="width: 100%; height: 75%; border: none; margin-left: auto; margin-right: auto" src="LeapPointer/demo.html"></iframe>
 </section><!--************************************************************************************************************************************************************************************************
 --><section class="slide">
+<div style="width:600px;margin-left: auto; margin-right: auto;text-align: center">
 	<h1>Using Pointer Events Today</h1>
+	<style>
+	.support {background-color: #390;}
+	.partial {background-color: #FC6;}
+	.notsupported {background-color: #F33;}
+	.supporttable td { text-align:center; min-width: 75px; min-height: 75px;}
+	</style>
+	
+	<table class="supporttable" style="margin-left: auto; margin-right: auto;">
+		<tr><td><img src="resources/spartan.jpg" style="width: 30px"></td><td><img src="resources/ie_logo.png" style="width:30px"></td><td><img src="resources/firefox_32x32.png" style="width:30px"></td><td><img src="resources/chrome_32x32.png" style="width:30px"></td><td><img src="resources/safari-ios_32x32.png" style="width:30px"></td></tr>
+		<tr>
+			<td class="support">&nbsp;</td>
+			<td class="support">&nbsp;</td>
+			<td class="support">Coming<br>Soon</td>
+			<td class="partial">Touch<br>Action</td>
+			<td class="notsupported">&nbsp;</td>
+		</tr>
+	</table>
+	<ul style="margin-left: 0px; padding-left: 0px;">
+		<li>jQuery PEP: <a href="http://github.com/jquery/pep">http://github.com/jquery/pep</a></li>
+		<li>Firefox Tracker: <a href="http://aka.ms/geckopointer">http://aka.ms/geckopointer</a></li>
+		<li>Chrome Tracker: <a href="http://aka.ms/blinkpointer">http://aka.ms/blinkpointer</a></li>
+		<li>Safari Tracker: <a href="http://aka.ms/webkitpointer">http://aka.ms/webkitpointer</a></li>
+	</div>
+	<!--
 	<ul>
 		<li><img src="resources/ie_logo.png" style="width:30px"> 10 (prefixed)</li>
 		<li><img src="resources/ie_logo.png" style="width:30px"> 11</li>
@@ -323,7 +348,7 @@ function handlePointerEvent(event) {
 		<li>Hand.js - <a href="http://aka.ms/handjs">http://aka.ms/handjs</a></li>
 		<li>Polymer Polyfill - <a href="http://www.polymer-project.org/platform/pointer-events.html">polymer-project.org/platform/pointer-events.html</a></li>
 		<li>Cordova/PhoneGap plugin</li>
-	</ul>
+	</ul>-->
 </section><!--************************************************************************************************************************************************************************************************
 --><section class="blue title slide" id="gestureEventsSlide">
     <h1>Gesture Events</h1>

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <style>
-body { font-family: segoe ui; overflow: hidden; color: white; font-size: 18pt;}
+body { font-family: segoe ui; overflow: hidden; color: white; background-color: black;font-size: 18pt;}
 
 #pen {
 	width: 25px; position: absolute; top: 50px; left: 50%; transform-origin: bottom; z-index: 2; perspective-origin: bottom;
@@ -34,14 +34,15 @@ var tiltX, tiltY;
 
 function updatePen(e) {
 	if(e.pointerType==="pen" || e.pointerType === 3) {
-		if(e.tiltX < 90)
-			tiltX = (e.tiltX*2 - 45)*2;
-		if(e.tiltY < 90)
-			tiltY = (e.tiltY*2 - 45)*2;
-		x.innerHTML = tiltX + "&deg;";
-		y.innerHTML = tiltY + "&deg;";
+		//if(e.tiltX > 90)
+		//	tiltX = (e.tiltX*2 - 45)*2;
+		//if(e.tiltY < 90)
+		//	tiltY = (e.tiltY*2 - 45)*2;
+		//tiltX = (e.tiltX + 330)/2.7;
+		x.innerHTML = e.tiltX + "&deg;";
+		y.innerHTML = e.tiltY + "&deg;";
 		
-		pen.style.transform = "perspective(5000px) rotateZ(" + tiltX + "deg) rotateX(" + tiltY + "deg)";
+		pen.style.transform = "perspective(5000px) rotateZ(" + e.tiltX + "deg) rotateX(" + e.tiltY + "deg)";
 	}
 }
 
