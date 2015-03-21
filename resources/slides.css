@@ -40,6 +40,7 @@ html, body { -ms-overflow-style: none;}
 
 /* Viewport Scaling */
 @-ms-viewport {
-	width: device-width;
-	height: device-height;
+	/*width: device-width;
+	height: device-height;*/
+	height: 768px;
 }
