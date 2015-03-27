@@ -21,9 +21,9 @@
         <h2>Building Adaptive Input Experiences</h2>
     </header>
 	<ul style="text-align: center; margin-top: 100px">
-		<li>Jacob Rossi</li>
-		<li class="ie"><img src="resources/IE_logo.png"> <span>Internet Explorer</span></li>
-		<li class="twitter"><img src="resources/twitter.png"> <span>@jacobrossi</span></li>
+		<li>@JacobRossi</li>
+		<li><img src="resources/msft_transparent.png"></li>
+		<!--<li class="twitter"><img src="resources/twitter.png"> <span>@jacobrossi</span></li>-->
 	</ul>
 </section><!--************************************************************************************************************************************************************************************************
 --><section class="slide">
@@ -91,6 +91,58 @@ function onSwipe(element) {
         <iframe src="pulldown.html" style="width: 400px; height: 300px; border: 2px solid white;"></iframe>
 		<img style="float: left; margin-left: 50px; width: 500px">
 </section><!--************************************************************************************************************************************************************************************************
+--><section class="blue title slide">
+	<h1>Zoom, viewports, and fixed elements</h1>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>Visualizing scrolling</h1>
+	<img src="resources/viewports/scroll.gif" style="width: 100%; margin-left: auto; margin-right: auto;">
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>Visualizing scrolling</h1>
+	<h2>The "sliding window"</h2>
+	<img src="resources/viewports/scroll_window.gif" style="width:100%; margin-left: auto; margin-right: auto;">
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>Visualizing zooming</h1>
+	<img src="resources/viewports/zoom.gif" style="width:100%; margin-left: auto; margin-right: auto;">
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>Visualizing zooming</h1>
+	<h2>The "magnifying glass"</h2>
+	<img src="resources/viewports/zoom_window.gif" style="width:100%; margin-left: auto; margin-right: auto;">
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>Why doesn't <code>position:fixed</code> stay on the screen?</h1>
+	<ul>
+		<li>Content didn't used to zoom (often)</li>
+		<li>Content assumes zoom doesn't affect layout</li>
+		<li>Content assumes fixed content aligns with non-fixed content</li>
+	</ul>
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>A tale of two viewports</h1>
+	<h2>What the page sees vs what you see</h2>
+	<img src="resources/viewports/twoviewports.png" style="width:100%; margin-left: auto; margin-right: auto;">
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>Some terms</h1>
+	<img src="resources/viewports/namedviewports.png" style="width:100%; margin-left: auto; margin-right: auto;">
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>Panning under zoom</h1>
+	<img src="resources/viewports/scroll_zoomed_nochain.gif" style="width:100%; margin-left: auto; margin-right: auto;">
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>Panning under zoom</h1>
+	<img src="resources/viewports/scroll_zoomed_chain.gif" style="width:100%; margin-left: auto; margin-right: auto;">
+</section><!--************************************************************************************************************************************************************************************************
+--><section class="slide">
+	<h1>What if I want it fixed to the screen?</h1>
+	<h2><code>position: -ms-device-fixed</code></h2>
+	<img src="resources/viewports/scroll_zoomed_chain.gif" style="width:100%; margin-left: auto; margin-right: auto;">
+</section>
+<!--************************************************************************************************************************************************************************************************
 --><section class="blue title slide">
 	<h1>Pointer Events</h1>
 </section><!--************************************************************************************************************************************************************************************************

@@ -111,30 +111,17 @@ a {
 
 .title .twitter {
 	margin-top: 20px;
-    margin-left: -30px;
+
 }
 
 .title .twitter  span{
 	vertical-align: 8px;
-	color: white;
+
 	font-size: 14pt;
 }
 
 .title .twitter img{
 	width: 30px;
-}
-
-.title .ie {
-    margin-left: -30px;
-}
-
-.title .ie img {
-    width: 30px;
- }
-
-.title .ie  span{
-	vertical-align: 8px;
-	font-size: 16pt;
 }
 
 .float-right {

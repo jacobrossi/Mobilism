@@ -1,6 +1,6 @@
 /* Slide Layout */
-html { width: 100%; height: 100%; margin:0px; padding:0px; -ms-user-select: none;}
-html, body { -ms-overflow-style: none;}
+html,body { width: 100%; height: 100%; margin:0px; padding:0px; -ms-user-select: none;}
+
 #presentation {
 	width: 1024px;
 	height: 768px;
