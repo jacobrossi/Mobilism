@@ -25,6 +25,9 @@
 		<li><img src="resources/msft_transparent.png"></li>
 		<!--<li class="twitter"><img src="resources/twitter.png"> <span>@jacobrossi</span></li>-->
 	</ul>
+</section>
+<section class="slide">
+<img src="resources/ie_rings.gif" style='width:100%'>
 </section><!--************************************************************************************************************************************************************************************************
 --><section class="slide">
 	<img src="resources/chromebook.png" style="position: absolute; left: 10%; margin-top: 10%; transform: rotate(-10deg); width:25%;">
@@ -87,60 +90,42 @@ function onSwipe(element) {
 </section><!--************************************************************************************************************************************************************************************************
 --><section class="slide">
     <h1>Other example uses:</h1>  
-        <h3>Pull-Down Menu</h3>
-        <iframe src="pulldown.html" style="width: 400px; height: 300px; border: 2px solid white;"></iframe>
+        <h3>Drawer menu</h3>
+        <iframe src="drawer.html" style="width: 400px; height: 300px; border: 2px solid white;"></iframe>
 		<img style="float: left; margin-left: 50px; width: 500px">
 </section><!--************************************************************************************************************************************************************************************************
 --><section class="blue title slide">
 	<h1>Zoom, viewports, and fixed elements</h1>
-</section><!--************************************************************************************************************************************************************************************************
---><section class="slide">
-	<h1>Visualizing scrolling</h1>
-	<img src="resources/viewports/scroll.gif" style="width: 100%; margin-left: auto; margin-right: auto;">
-</section><!--************************************************************************************************************************************************************************************************
---><section class="slide">
-	<h1>Visualizing scrolling</h1>
-	<h2>The "sliding window"</h2>
+</section>
+<section class="slide">
+	<h1>Fixed Elements with Scrolling</h1>
+
 	<img src="resources/viewports/scroll_window.gif" style="width:100%; margin-left: auto; margin-right: auto;">
 </section><!--************************************************************************************************************************************************************************************************
 --><section class="slide">
-	<h1>Visualizing zooming</h1>
-	<img src="resources/viewports/zoom.gif" style="width:100%; margin-left: auto; margin-right: auto;">
+	<h1>Fixed Elements with Zoom</h1>
+	<img src="resources/viewports/scroll_zoomed_chain.gif" style="width:100%; margin-left: auto; margin-right: auto;">
 </section><!--************************************************************************************************************************************************************************************************
 --><section class="slide">
-	<h1>Visualizing zooming</h1>
-	<h2>The "magnifying glass"</h2>
-	<img src="resources/viewports/zoom_window.gif" style="width:100%; margin-left: auto; margin-right: auto;">
-</section><!--************************************************************************************************************************************************************************************************
---><section class="slide">
+	<h1>Some terms</h1>
+	<img src="resources/viewports/namedviewports.png" style="width:100%; margin-left: auto; margin-right: auto;">
+</section>
+<section class="slide">
 	<h1>Why doesn't <code>position:fixed</code> stay on the screen?</h1>
 	<ul>
 		<li>Content didn't used to zoom (often)</li>
 		<li>Content assumes zoom doesn't affect layout</li>
 		<li>Content assumes fixed content aligns with non-fixed content</li>
 	</ul>
-</section><!--************************************************************************************************************************************************************************************************
---><section class="slide">
-	<h1>A tale of two viewports</h1>
-	<h2>What the page sees vs what you see</h2>
-	<img src="resources/viewports/twoviewports.png" style="width:100%; margin-left: auto; margin-right: auto;">
-</section><!--************************************************************************************************************************************************************************************************
---><section class="slide">
-	<h1>Some terms</h1>
-	<img src="resources/viewports/namedviewports.png" style="width:100%; margin-left: auto; margin-right: auto;">
-</section><!--************************************************************************************************************************************************************************************************
---><section class="slide">
-	<h1>Panning under zoom</h1>
-	<img src="resources/viewports/scroll_zoomed_nochain.gif" style="width:100%; margin-left: auto; margin-right: auto;">
-</section><!--************************************************************************************************************************************************************************************************
---><section class="slide">
-	<h1>Panning under zoom</h1>
-	<img src="resources/viewports/scroll_zoomed_chain.gif" style="width:100%; margin-left: auto; margin-right: auto;">
-</section><!--************************************************************************************************************************************************************************************************
+</section>
+<!--************************************************************************************************************************************************************************************************
+--><!--************************************************************************************************************************************************************************************************
 --><section class="slide">
 	<h1>What if I want it fixed to the screen?</h1>
 	<h2><code>position: -ms-device-fixed</code></h2>
-	<img src="resources/viewports/scroll_zoomed_chain.gif" style="width:100%; margin-left: auto; margin-right: auto;">
+	<ul>
+		<li>Still quite experimental</li>
+	</ul>
 </section>
 <!--************************************************************************************************************************************************************************************************
 --><section class="blue title slide">
@@ -379,8 +364,8 @@ function handlePointerEvent(event) {
 		<tr>
 			<td class="support">&nbsp;</td>
 			<td class="support">&nbsp;</td>
-			<td class="support">Coming<br>Soon</td>
-			<td class="partial">Touch<br>Action</td>
+			<td class="partial">Coming<br>Soon</td>
+			<td class="partial">Coming<br>Soon</td>
 			<td class="notsupported">&nbsp;</td>
 		</tr>
 	</table>
@@ -406,7 +391,7 @@ function handlePointerEvent(event) {
     <h1>Gesture Events</h1>
 </section><!--************************************************************************************************************************************************************************************************
 --><section class="slide">
-    <h1>MSGesture - direct manipulation through script</h1>
+    <h1>Gesture - direct manipulation through script</h1>
     <ol>
         <li>Instantiate a gesture recognizer:<br>
             <code>var g = new MSGesture();</code>
@@ -458,22 +443,12 @@ function manipulateElement(e) {
 	<iframe src="multi_gestures.html" style="border: none; width: 95%; height: 95%; margin: auto;"></iframe>
 </section><!--************************************************************************************************************************************************************************************************
 --><section class="slide">
-	<h1>A few short touch tips</h1>
-	<ul>
-		<li>Use 40px or larger hit targets</li>
-		<li>Avoid hover menus</li>
-		<li>Touch != No Mouse</li>
-		<li>Touch isn't mobile only</li>
-		<li>Use specific HTML5 Input types</li>
-</section><!--************************************************************************************************************************************************************************************************
---><section class="slide">
 	<h1>Thanks, now go touch the web!</h1>
 		<ul>
 			<li>More Resources:
 				<ul>
 					<li><a href="http://www.w3.org/TR/pointerevents/">http://www.w3.org/TR/pointerevents/</a></li>
-                    <li><a href="http://dev.w3.org/css/css-snappoints/">http://dev.w3.org/css/css-snappoints/</a></li>
-					<li><a href="http://bit.ly/win8touchguidance">http://bit.ly/win8touchguidance</a></li>
+                    <li><a href="http://dev.w3.org/csswg/css-snappoints/">http://dev.w3.org/csswg/css-snappoints/</a></li>
 					<li><a href="http://docs.webplatform.org/wiki/concepts/PointerEvents">http://docs.webplatform.org/wiki/concepts/PointerEvents</a></li>
 					<li><a href="http://github.com/jacobrossi/PointerPaint/">http://github.com/jacobrossi</a></li>
 				</ul>
